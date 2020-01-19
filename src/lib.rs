@@ -174,5 +174,9 @@ use crate::types::RustInfo;
 /// }
 /// ```
 pub fn get() -> RustInfo {
-    rustinfo::get()
+    rustinfo::get_for_target("")
+}
+/// ...
+pub fn get_for_target(target: &str) -> RustInfo {
+    rustinfo::get_for_target(target)
 }
