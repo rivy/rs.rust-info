@@ -1,60 +1,70 @@
-#![deny(
-    absolute_paths_not_starting_with_crate,
-    ambiguous_associated_items,
-    anonymous_parameters,
+#![allow(deprecated,unknown_lints)]
+#![cfg_attr(any(feature="feat_test_pedantic"), warn(unknown_lints))]
+#![cfg_attr(any(feature="feat_test_pedantic"), deny(deprecated))]
+// known lints (as of 1.42.0-nightly)
+#![cfg_attr(all(feature="nightly",feature="feat_test_pedantic"), deny(
     array_into_iter,
     bindings_with_variant_name,
+    overlapping_patterns,
+    uncommon_codepoints,
+))]
+// known lints (as of v1.39.0)
+#![cfg_attr(any(feature="feat_test_pedantic"), deny(
+    ambiguous_associated_items,
+    anonymous_parameters,
+    deprecated_in_future,
+    exported_private_dependencies,
+    ill_formed_attribute_input,
+    incomplete_features,
+    indirect_structural_match,
+    invalid_value,
+    meta_variable_misuse,
+    mutable_borrow_reservation_conflict,
+    non_ascii_idents,
+    order_dependent_trait_objects,
+    private_doc_tests,
+    redundant_semicolon,
+    soft_unstable,
+))]
+// known lints (as of v1.31.0)
+#![deny(
+    absolute_paths_not_starting_with_crate,
     const_err,
     dead_code,
     deprecated,
-    deprecated_in_future,
     ellipsis_inclusive_range_patterns,
     exceeding_bitshifts,
     explicit_outlives_requirements,
-    exported_private_dependencies,
-    ill_formed_attribute_input,
     illegal_floating_point_literal_pattern,
     improper_ctypes,
-    incomplete_features,
-    indirect_structural_match,
     invalid_type_param_default,
-    invalid_value,
     irrefutable_let_patterns,
     keyword_idents,
     late_bound_lifetime_arguments,
     macro_expanded_macro_exports_accessed_by_absolute_paths,
-    meta_variable_misuse,
     missing_copy_implementations,
     missing_docs,
     missing_fragment_specifier,
-    mutable_borrow_reservation_conflict,
     mutable_transmutes,
     no_mangle_const_items,
     no_mangle_generic_items,
-    non_ascii_idents,
     non_camel_case_types,
     non_shorthand_field_patterns,
     non_snake_case,
     non_upper_case_globals,
-    order_dependent_trait_objects,
     overflowing_literals,
-    overlapping_patterns,
     path_statements,
     patterns_in_fns_without_body,
-    private_doc_tests,
     private_in_public,
     proc_macro_derive_resolution_fallback,
     pub_use_of_private_extern_crate,
-    redundant_semicolon,
     safe_packed_borrows,
-    soft_unstable,
     stable_features,
     trivial_bounds,
     trivial_casts,
     trivial_numeric_casts,
     type_alias_bounds,
     tyvar_behind_raw_pointer,
-    uncommon_codepoints,
     unconditional_recursion,
     unknown_crate_types,
     unnameable_test_items,
@@ -85,7 +95,7 @@
     where_clauses_object_safety,
     while_true
 )]
-#![warn(macro_use_extern_crate, unknown_lints)]
+#![warn(macro_use_extern_crate)]
 #![allow(
     bare_trait_objects,
     box_pointers,

@@ -23,6 +23,10 @@ include = [
     "/Makefile.toml"
 ]
 
+[features]
+nightly = []
+feat_test_pedantic = []
+
 [badges.travis-ci]
 branch = "master"
 repository = "sagiegurari/rust_info"
